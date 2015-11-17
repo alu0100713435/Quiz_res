@@ -6,4 +6,11 @@ body { background: #333; }
 h2 span, section h3 { display: none; }
 body { font-size: xx-large; }
 footer, input { font-size: large; }
-#photocas, #videochimp { display: none; }
+
+#list {
+  background-color: #FFFFFF;
+  /*width: 560px;*/
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #ddd;
+}
