@@ -1,0 +1,35 @@
+body {
+  padding: 50px;
+  font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url(../images/Quiz_Image.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  text-align: center;
+  background-color: #0B615E;
+}
+a {
+  color: #0404B4;
+}
+p {
+  font-family: "Homer Simpson";
+}
+h1 {
+  font-size: 200% ;
+  font: bold;
+}
+#n1 {
+  text-align: center;
+}
+
+#h1{
+  font-weight:bold;
+  color: black;
+}
+#list {
+  background-color: #FFFFFF;
+  width: 560px;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #ddd;
+}

@@ -1,0 +1,9 @@
+<h2>Listado de preguntas:</h2>
+<span><a href="/">Inicio</a></span>
+<div id="list">
+    <ul id="lista">
+    <% for(var i=0; i<prg.length; i++) {%>
+       <li><%- link_to(prg[i], '/quizes/question_list/'+(i+1)) %></li>
+    <% } %>
+    </ul>
+</div> 
