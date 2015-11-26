@@ -1,25 +1,82 @@
 var AbstractQuiz = require('../models/abstract_quiz_model.js');
 
+function Pregunta(){
+  this.pregunta;
+  this.resp;
+}
+
+function PreguntaLarga(x) {
+  Pregunta.call(this);
+
+  this.pregunta_ = x;
+  this.area_ = "<textarea name='respuesta' placeholder='Respuesta' rows='4' cols='50'></textarea>";
+}
+
+PreguntaLarga.prototype = new Pregunta();
+
+PreguntaLarga.prototype.constructor = PreguntaLarga;
+
+PreguntaLarga.prototype.get_area = function(){
+  return this.area_;
+}
+
+PreguntaLarga.prototype.get_pregunta = function(){
+  return this.pregunta_;
+}
+
+function PreguntaCorta(x) {
+  Pregunta.call(this);
+
+  this.pregunta_ = x;
+  this.area_ = "<input type='text' name='respuesta' placeholder='Responda aquí'' />";
+}
+
+PreguntaCorta.prototype = new Pregunta();
+
+PreguntaCorta.prototype.constructor = PreguntaCorta;
+
+PreguntaCorta.prototype.get_area = function(){
+  return this.area_;
+}
+
+PreguntaCorta.prototype.get_pregunta = function(){
+  return this.pregunta_;
+}
+
+function Respuesta(x){
+
+  // Si es entero o cadena
+  if(typeof(x)==='string' || typeof(x)==='number'){
+    return function(res){return res === x;};
+  }
+
+  // Si es una expresión regular
+  else if(x instanceof RegExp === true){
+    return function(res){return res.match(x);};
+  }
+
+  // Si es una funcion
+  else {
+    return x;
+  }
+}
+
 function Quiz() {
 
   AbstractQuiz.call(this);
 
   this.q.push(
 
-    { pregunta: '¿Cual es la capital de Butan?',
-      respuesta: function(x) {
-        return (/^\s*Timbu\s*$/i).exec(x);
-      }
+    { pregunta: new PreguntaCorta('¿Cual es la capital de Butan?'),
+      respuesta: new Respuesta(/^\s*Timbu\s*$/i)
     },
 
     {
-      pregunta: '¿Cual es el gentilicio de la gente de Chad(pais)?',
-      respuesta: function(x) {
-        return (/\s*Chadiense\s*$/i).exec(x);
-      }
+      pregunta: new PreguntaCorta('¿Cual es el gentilicio de la gente de Chad(pais)?'),
+      respuesta: new Respuesta(/^\s*Chadiense\s*$/i)
     },
 
-    { pregunta: '¿Cual es la principal religion de Turkmenistan?',
+    /*{ pregunta: '¿Cual es la principal religion de Turkmenistan?',
       respuesta: function(x) {
         return (/\s*Musulman\s*$/i).exec(x);
       }
@@ -35,7 +92,7 @@ function Quiz() {
       respuesta: function(x) {
         return (/\s*Alguien\s*$/i).exec(x);
       }
-    }
+    }*/
 
   );
 
