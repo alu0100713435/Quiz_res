@@ -25,7 +25,7 @@ exports.questions = function(req,res) {
     array[i] = (quiz.getQ(i));
   }
 
-  res.render('quizes/questions', {prg: array})
+  res.render('quizes/question_list', {prg: array})
 };
 
 exports.specificQuestion = function(req, res) {
