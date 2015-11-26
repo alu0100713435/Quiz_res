@@ -74,7 +74,7 @@ function Quiz() {
     {
       pregunta: new PreguntaCorta('¿Cual es el gentilicio de la gente de Chad(pais)?'),
       respuesta: new Respuesta(/^\s*Chadiense\s*$/i)
-    },
+    }
 
     /*{ pregunta: '¿Cual es la principal religion de Turkmenistan?',
       respuesta: function(x) {
