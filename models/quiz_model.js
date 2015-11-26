@@ -8,8 +8,8 @@ function Pregunta(){
 function PreguntaLarga(x) {
   Pregunta.call(this);
 
-  this.pregunta_ = x;
-  this.area_ = "<textarea name='respuesta' placeholder='Respuesta' rows='4' cols='50'></textarea>";
+  this.pregunta = x;
+  this.resp = "<textarea name='respuesta' placeholder='Respuesta' rows='4' cols='50'></textarea>";
 }
 
 PreguntaLarga.prototype = new Pregunta();
@@ -17,18 +17,18 @@ PreguntaLarga.prototype = new Pregunta();
 PreguntaLarga.prototype.constructor = PreguntaLarga;
 
 PreguntaLarga.prototype.get_area = function(){
-  return this.area_;
+  return this.resp;
 }
 
 PreguntaLarga.prototype.get_pregunta = function(){
-  return this.pregunta_;
+  return this.pregunta;
 }
 
 function PreguntaCorta(x) {
   Pregunta.call(this);
 
-  this.pregunta_ = x;
-  this.area_ = "<input type='text' name='respuesta' placeholder='Responda aquí'' />";
+  this.pregunta = x;
+  this.resp = "<input type='text' name='respuesta' placeholder='Responda aquí'' />";
 }
 
 PreguntaCorta.prototype = new Pregunta();
@@ -36,11 +36,11 @@ PreguntaCorta.prototype = new Pregunta();
 PreguntaCorta.prototype.constructor = PreguntaCorta;
 
 PreguntaCorta.prototype.get_area = function(){
-  return this.area_;
+  return this.resp;
 }
 
 PreguntaCorta.prototype.get_pregunta = function(){
-  return this.pregunta_;
+  return this.pregunta;
 }
 
 function Respuesta(x){
@@ -72,7 +72,7 @@ function Quiz() {
     },
 
     {
-      pregunta: new PreguntaCorta('¿Cual es el gentilicio de la gente de Chad(pais)?'),
+      pregunta: new PreguntaLarga('¿Cual es el gentilicio de la gente de Chad(pais)?'),
       respuesta: new Respuesta(/^\s*Chadiense\s*$/i)
     }
 
